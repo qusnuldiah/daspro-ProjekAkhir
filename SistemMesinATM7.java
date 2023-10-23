@@ -80,8 +80,11 @@ public class SistemMesinATM7 {
                         sc.nextDouble();
                         System.out.print("Nominal transfer: ");
                         double transfer = sc.nextDouble();
-                        currentAccount.saldoAwal -= transfer;
+                        if (currentAccount.saldoAwal <= transfer){
                         System.out.println("Transfer berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
+                        } else {
+                            System.out.println("Saldo Tidak mencukupi");
+                        }
                         break;
                     case 5:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
