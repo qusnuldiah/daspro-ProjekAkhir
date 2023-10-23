@@ -49,8 +49,9 @@ public class SistemMesinATM7 {
                 System.out.println("1. Cek Saldo");
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
-                System.out.println("4. Keluar");
-                System.out.print("Pilih menu (1/2/3/4): ");
+                System.out.println("4. Transfer");
+                System.out.println("5. Keluar");
+                System.out.print("Pilih menu (1/2/3/4/5): ");
 
                 int pilihan = sc.nextInt();
 
@@ -75,16 +76,25 @@ public class SistemMesinATM7 {
                         System.out.println("Setoran berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                         break;
                     case 4:
+                        System.out.print("Masukkan nomor rekening tujuan: ");
+                        sc.nextDouble();
+                        System.out.print("Nominal transfer: ");
+                        double transfer = sc.nextDouble();
+                        currentAccount.saldoAwal -= transfer;
+                        System.out.println("Transfer berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
+                        break;
+                    case 5:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
                     default:
                         System.out.println("Pilihan tidak valid. Silakan pilih menu yang benar.");
-            sc.close();
+                
                 }
-            
+      
             }
         } else {
-            System.out.print("PIN ATAU NOMOR REKENING SALAH " + "\nSILAHKAN MASUKAN PIN DAN NOMOR REKENING YANG BENAR");
-        }    
+            System.out.print("PIN ATAU NOMOR REKENING SALAH " + "\nANDA KELUAR DARI SISTEM");
+        }
+    sc.close();     
     }
 }
