@@ -22,8 +22,7 @@ public class SistemMesinATM7 {
 
         Account[] accounts = {
             new Account(223344, 632453, 4000000.0),
-            new Account(556677, 632145, 4500000.0),
-            new Account(889911, 632786, 3700000.0)
+    
         };
 
         System.out.print("Masukan PIN            : ");
@@ -32,7 +31,6 @@ public class SistemMesinATM7 {
         int nomorRekening = sc.nextInt();
         Account currentAccount = null;
 
-        // Cari akun yang sesuai dengan PIN dan Nomor Rekening
         for (Account account : accounts) {
             if (account.pin == pin && account.nomorRekening == nomorRekening) {
                 currentAccount = account;
