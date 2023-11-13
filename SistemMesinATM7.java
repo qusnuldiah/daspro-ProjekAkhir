@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * ProjectSistemMesinAtm
- */
 public class SistemMesinATM7 {
 
     private static class Account {
@@ -21,8 +18,9 @@ public class SistemMesinATM7 {
         Scanner sc = new Scanner(System.in);
 
         Account[] accounts = {
-            new Account(223344, 632453, 4000000.0),
-    
+            new Account(223344, 632453, 40000000.0),
+            new Account(556677, 632672, 23000000.0),
+            new Account(889911, 632649, 10000000.0)
         };
 
         System.out.print("Masukan PIN            : ");
@@ -43,13 +41,15 @@ public class SistemMesinATM7 {
             System.out.println("PILIH TRANSAKSI YANG DIINGINKAN");
             
             while (true) {
-                System.out.println("Menu:");
+                System.out.println("___________________________________");
+                System.out.println("          Menu      ");
                 System.out.println("1. Cek Saldo");
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
                 System.out.println("4. Transfer");
-                System.out.println("5. Keluar");
-                System.out.print("Pilih menu (1/2/3/4/5): ");
+                System.out.println("5. Panduan Penggunaan");
+                System.out.println("6. Keluar");
+                System.out.print("Pilih menu (1/2/3/4/5/6): ");
 
                 int pilihan = sc.nextInt();
 
@@ -85,6 +85,8 @@ public class SistemMesinATM7 {
                         }
                         break;
                     case 5:
+                        System.out.println("     PANDUAN PENGGUNAAN MESIN ATM     ");
+                    case 6:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
                     default:
