@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class SistemMesinATM7 {
 
-    private static class Account {
+    public static class Account {  
         int saldoAwal; 
         int pin, nomorRekening;
 
@@ -12,7 +12,10 @@ public class SistemMesinATM7 {
             this.nomorRekening = nomorRekening;
             this.saldoAwal = saldoAwal;
         }
-
+        public void reportProblem(int tanggal, String masalah) {
+            // Logic to report the problem
+            System.out.println("Problem reported for account " + nomorRekening + " on " + tanggal + ": " + masalah);
+        }
         }
 
     public static void main(String[] args) {
@@ -49,9 +52,9 @@ public class SistemMesinATM7 {
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
                 System.out.println("4. Transfer");
-                System.out.println("6. Laporan Permasalahan");
-                System.out.println("7. Keluar");
-                System.out.print("Pilih menu (1/2/3/4/5/6/7): ");
+                System.out.println("5. Laporan Permasalahan");
+                System.out.println("6. Keluar");
+                System.out.print("Pilih menu (1/2/3/4/5/6): ");
 
                 int pilihan = sc.nextInt();
 
@@ -165,9 +168,45 @@ public class SistemMesinATM7 {
                         }
                         break;
                     case 5:
-                        System.out.println("     PANDUAN PENGGUNAAN MESIN ATM     ");
+                        System.out.println("Pengaduan Masalah  ");
+                        
+                        System.out.println("Masukkan No Rekening :");
+                        nomorRekening = sc.nextInt();
+                        System.out.println("Masukkan Tanggal (dd/mm/yy)");
+                        int tanggal = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Permasalahan yang Anda alami :");
+                        String masalah = sc.nextLine();
+                        
+
+                        System.out.println("Masukkan PIN: ");
+                        int inputPin = sc.nextInt();
+                        sc.nextLine(); // Consume the newline character
+                        if (inputPin != currentAccount.pin) {
+                         System.out.println("PIN tidak sesuai. Pengaduan masalah dibatalkan.");
+                        }
+
+                         
+                        Account selectedAccount = null;
+            for (Account account : accounts) {
+                if (account.nomorRekening == nomorRekening) {
+                    selectedAccount = account;
+                
+                    break;
+                }
+            }
+
+            if (selectedAccount != null) {
+                selectedAccount.reportProblem(tanggal, masalah);
+            } else {
+                System.out.println("Account not found");
+            }
+            break;
+                        
+                
+
                     case 6:
-                        System.out.println("Permasalahan Apa yang Anda Alami :"); 
+                        System.out.println("Permasalahan Apa yang Anda Alami :");
                     case 7:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
@@ -183,3 +222,4 @@ public class SistemMesinATM7 {
         sc.close();
     }
 }
+
