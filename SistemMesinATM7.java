@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class SistemMesinATM7 {
 
@@ -16,6 +17,7 @@ public class SistemMesinATM7 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Random random = new Random();
 
         Account[] accounts = {
             new Account(223344, 632453, 4000000),
@@ -47,7 +49,6 @@ public class SistemMesinATM7 {
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
                 System.out.println("4. Transfer");
-                System.out.println("5. Panduan Penggunaan");
                 System.out.println("6. Laporan Permasalahan");
                 System.out.println("7. Keluar");
                 System.out.print("Pilih menu (1/2/3/4/5/6/7): ");
@@ -86,7 +87,7 @@ public class SistemMesinATM7 {
                         }
                         boolean jumlahTdkTersedia = true;
                         while( jumlahTdkTersedia){
-                            System.out.println("Pilihan Nominal Penarikan");
+                            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+"\n      PILIHAN NOMINAL PENARIKAN");
                             System.out.println("1. Rp 10.000,00");
                             System.out.println("2. Rp 20.000,00");
                             System.out.println("3. Rp 50.000,00");
@@ -96,39 +97,47 @@ public class SistemMesinATM7 {
                             System.out.println("7. Rp 1.000.000,00");
                             System.out.println("Pilih Nominal Penarikan(1/2/3/4/5/6/7) : ");
                             int jumlahTarikan = sc.nextInt();
+                            int kodeTransaksi = random.nextInt(1000000);
                             switch (jumlahTarikan){
                                 case 1:
                                 currentAccount.saldoAwal -= 10000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 2:
                                 currentAccount.saldoAwal -= 20000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 3:
                                 currentAccount.saldoAwal -= 50000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 4:
                                 currentAccount.saldoAwal -= 100000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 5:
                                 currentAccount.saldoAwal -= 200000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 6:
                                 currentAccount.saldoAwal -= 500000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
                                 case 7:
                                 currentAccount.saldoAwal -= 1000000;
+                                System.out.println("Kode : "+ kodeTransaksi);
                                 System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                                 jumlahTdkTersedia = false;
                                 break;
@@ -158,7 +167,7 @@ public class SistemMesinATM7 {
                     case 5:
                         System.out.println("     PANDUAN PENGGUNAAN MESIN ATM     ");
                     case 6:
-                        System.out.println("Permasalahan Apa yang Anda Alami :");
+                        System.out.println("Permasalahan Apa yang Anda Alami :"); 
                     case 7:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
