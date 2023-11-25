@@ -151,9 +151,11 @@ public class SistemMesinATM7 {
                     break;
                         
                     case 3:
+                        int kodeTransaksi = random.nextInt(1000000);
                         System.out.print("Masukkan jumlah setoran: ");
                         int setoran = sc.nextInt();
                         currentAccount.saldoAwal += setoran;
+                        System.out.println("Kode : "+ kodeTransaksi);
                         System.out.println("Setoran berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                         break;
                     case 4:
@@ -177,37 +179,26 @@ public class SistemMesinATM7 {
                         sc.nextLine();
                         System.out.println("Permasalahan yang Anda alami :");
                         String masalah = sc.nextLine();
-                        
-
                         System.out.println("Masukkan PIN: ");
                         int inputPin = sc.nextInt();
                         sc.nextLine(); // Consume the newline character
                         if (inputPin != currentAccount.pin) {
                          System.out.println("PIN tidak sesuai. Pengaduan masalah dibatalkan.");
                         }
-
-                         
                         Account selectedAccount = null;
-            for (Account account : accounts) {
-                if (account.nomorRekening == nomorRekening) {
-                    selectedAccount = account;
-                
-                    break;
-                }
-            }
-
-            if (selectedAccount != null) {
-                selectedAccount.reportProblem(tanggal, masalah);
-            } else {
-                System.out.println("Account not found");
-            }
-            break;
-                        
-                
-
+                        for (Account account : accounts) {
+                            if (account.nomorRekening == nomorRekening) {
+                                selectedAccount = account;
+                                break;
+                            }
+                        }
+                        if (selectedAccount != null) {
+                            selectedAccount.reportProblem(tanggal, masalah);
+                        } else {
+                            System.out.println("Account not found");
+                        }
+                        break;
                     case 6:
-                        System.out.println("Permasalahan Apa yang Anda Alami :");
-                    case 7:
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
                     default:
