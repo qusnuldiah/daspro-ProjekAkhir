@@ -156,17 +156,15 @@ public class SistemMesinATM7 {
                         int setoran = sc.nextInt();
                         currentAccount.saldoAwal += setoran;
                         System.out.println("Kode : "+ kodeTransaksi);
-                        System.out.println("Setoran berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
+                        System.out.println("Setoran berhasil, Saldo Anda sekarang: " + currentAccount.saldoAwal);
                         break;
                     case 4:
-                        kodeTransaksi = random.nextInt(1000000);
                         System.out.print("Masukkan nomor rekening tujuan: ");
                         sc.nextDouble();
                         System.out.print("Nominal transfer: ");
                         double transfer = sc.nextDouble();
                         if (transfer <= currentAccount.saldoAwal){
                         currentAccount.saldoAwal -= transfer;
-                        System.out.println("Kode : "+ kodeTransaksi);
                         System.out.println("Transfer berhasil. Saldo Anda sekarang: " + currentAccount.saldoAwal);
                         } else {
                             System.out.println("Saldo Tidak mencukupi");
@@ -215,7 +213,7 @@ public class SistemMesinATM7 {
                         System.out.println("Terima kasih telah menggunakan ATM. Sampai jumpa!");
                         System.exit(0);
                     default:
-                        System.out.println("Pilihan tidak valid. Silakan pilih menu yang benar.");
+                        System.out.println("Pilihan tidak valid. Silakan pilih menu yang tersedia.");
                 
                 }
       
